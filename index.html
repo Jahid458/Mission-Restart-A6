@@ -15,38 +15,45 @@
 </head>
 
 <body>
-    <div class="bg-base-100 shadow-md">
+    <header class="bg-base-100 shadow-md">
         <div class="container mx-auto px-4 flex items-center justify-between h-16">
 
             <a href="#" class="text-2xl font-bold text-primary">
                 SwiftCart
             </a>
 
-            <ul class="hidden lg:flex space-x-8 font-medium text-gray-800">
-                <li><a href="#" class="hover:text-primary transition">Home</a></li>
-                <li><a href="Products.html" class="hover:text-primary transition">Products</a></li>
-                <li><a href="#" class="hover:text-primary transition">About</a></li>
-                <li><a href="#" class="hover:text-primary transition">Contact</a></li>
+            <ul id="nav-links"
+                class="flex flex-col lg:flex lg:flex-row lg:space-x-8 font-medium text-gray-800 overflow-hidden max-h-0 px-6 lg:max-h-full transition-[max-height] duration-500 ease-in-out bg-white lg:bg-transparent shadow-md lg:shadow-none absolute lg:static top-16 left-0 w-full lg:w-auto z-40 ">
+                <li><a href="index.html" class="hover:text-violet-500 active:text-violet-500 transition-colors duration-300 ">Home</a>
+                </li>
+                <li><a href="Products.html" class="hover:text-violet-500 active:text-violet-500 transition-colors duration-300"> Products </a>
+                </li>
+                <li><a href="#" class="hover:text-violet-500 active:text-violet-500 transition-colors duration-300"> About</a>
+                </li>
+                <li><a href="#" class="hover:text-violet-500 active:text-violet-500 transition-colors duration-300"> Contact</a>
+                </li>
             </ul>
+
 
             <!-- Icons -->
             <div class="flex items-center space-x-4">
 
 
                 <div class="lg:hidden">
-                    <button class="text-xl">
+                    <button id="mobile-menu-btn" class="text-xl">
                         <i class="fa-solid fa-bars"></i>
                     </button>
                 </div>
 
                 <button class="text-xl relative">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="absolute -top-1 -right-1 text-xs bg-primary text-white rounded-full px-1"></span>
+                    <span id="cart-count"
+                        class="absolute -top-1 -right-1 text-xs bg-primary text-white rounded-full px-1"></span>
                 </button>
 
             </div>
         </div>
-    </div>
+    </header>
 
 
     <section class="hero min-h-[90vh] relative"
@@ -127,14 +134,21 @@
                 </div>
             </div>
         </div>
+        <div id="trending-products" class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+            <h1 class="col-span-full text-center text-2xl font-bold  py-8">Trending Products</h1>
+        </div>
     </section>
 
 
-
-
-
-
-
+    <!-- Modal -->
+    <div id="product-modal" class="fixed inset-0  bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg w-11/12 md:w-2/3 lg:w-1/2 p-6 relative">
+            <button id="modal-close"
+                class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl font-bold">&times;</button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    </div>
 
 
     <footer class="bg-[#1e2939] text-neutral-content">
@@ -155,8 +169,8 @@
             <div>
                 <h3 class="footer-title">Quick Links</h3>
                 <ul class="space-y-2 mt-4">
-                    <li><a class="link link-hover">Home</a></li>
-                    <li><a class="link link-hover">Products</a></li>
+                    <li><a href="index.html" class="link link-hover">Home</a></li>
+                    <li><a href="Products.html" class="link link-hover">Products</a></li>
                     <li><a class="link link-hover">About</a></li>
                     <li><a class="link link-hover">Contact</a></li>
                 </ul>
@@ -203,10 +217,15 @@
             </div>
         </div>
     </footer>
-
-
-
     <script src="./script.js"></script>
+    <script>
+        const mobileBtn = document.getElementById("mobile-menu-btn");
+        const navLinks = document.getElementById("nav-links");
+
+        mobileBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("hidden");
+        });
+    </script>
 </body>
 
 </html>
