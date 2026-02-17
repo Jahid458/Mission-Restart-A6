@@ -9,7 +9,7 @@ const mobileBtn = document.getElementById("mobile-menu-btn");
 const navLinks = document.getElementById("nav-links");
 
 mobileBtn.addEventListener("click", () => {
-    // Only animate on small screens
+     
     if (window.innerWidth < 1024) {
         if (navLinks.style.maxHeight && navLinks.style.maxHeight !== "0px") {
             navLinks.style.maxHeight = "0";
@@ -19,12 +19,12 @@ mobileBtn.addEventListener("click", () => {
     }
 });
 
-// Optional: reset menu when resizing to desktop
+ 
 window.addEventListener("resize", () => {
     if (window.innerWidth >= 1024) {
-        navLinks.style.maxHeight = "none"; // desktop menu fully visible
+        navLinks.style.maxHeight = "none";  
     } else {
-        navLinks.style.maxHeight = "0"; // small screen menu closed
+        navLinks.style.maxHeight = "0"; 
     }
 });
 
@@ -39,7 +39,7 @@ function addToCart() {
   cartCountingElement.classList.remove("hidden");
 }
 
-  // Load Category Dynamically 
+  // Load Category   
 async function loadCategories() {
   const res = await fetch("https://fakestoreapi.com/products/categories");
   const categories = await res.json();
